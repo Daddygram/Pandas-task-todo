@@ -1,4 +1,10 @@
+@use "./functions.scss" as *;
+
 $color--primary: #f8f9fa;
 $color--secondary: #495057;
 $color--tertiary: #adb5bd;
 $color--background: #212529;
+
+$padding--sm: rem(10);
+$padding--md: rem(20);
+$padding--lg: rem(30);
