@@ -1,0 +1,20 @@
+@use "./functions.scss" as *;
+
+// ! Flexbox container mixin
+// $flow: Sets the flex-direction and flex-wrap properties (default: row wrap)
+// $justify: Sets the justify-content property (default: flex-start)
+// $align-items: Sets the align-items property (default: stretch)
+// $align-content: Sets the align-content property (default: stretch)
+@mixin flex(
+  $direction: row,
+  $wrap,
+  $justify: flex-start,
+  $align-items: stretch,
+  $align-content: stretch
+) {
+  flex-direction: $direction;
+  display: flex;
+  flex-wrap: if($direction == "row", $wrap, nowrap);
+  place-content: $align-content $justify;
+  align-items: $align-items;
+}

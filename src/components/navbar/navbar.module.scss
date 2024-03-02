@@ -1,0 +1,33 @@
+@use '@/styles/abstracts' as *;
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    @include flex(
+        $justify: space-around,
+        $wrap: nowrap
+    );
+}
+
+.logo {
+    font-size: rem(50);
+    color: $color--primary;
+}
+
+.navLinkUl {
+    @include flex(
+        $justify: center,
+        $wrap: nowrap,
+        $align-items: center
+    );
+    gap: rem(50);
+}
+
+.navLinks {
+    color: $color--primary;
+    transition: 0.3s ease;
+    cursor: pointer;
+    &:hover {
+        color: $color--tertiary;
+    }
+}

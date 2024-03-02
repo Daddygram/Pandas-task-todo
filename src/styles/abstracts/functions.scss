@@ -1,0 +1,11 @@
+@use "sass:math";
+
+// ! Pixel to rem
+@function rem($value, $context: 16) {
+  // Check if the value is unitless
+  @if not math.is-unitless($value) {
+    @error "The value #{$value} must be unitless.";
+  }
+
+  @return math.div($value, $context) * 1rem;
+}

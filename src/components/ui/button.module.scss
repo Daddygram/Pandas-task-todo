@@ -1,0 +1,11 @@
+@use "@/styles/abstracts" as *;
+
+.button {
+  &--primary {
+    background: $color--primary;
+  }
+
+  &--secondary {
+    background: $color--secondary;
+  }
+}
