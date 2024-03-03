@@ -65,22 +65,21 @@ interface TasksProps {
                         <DialogTrigger asChild>
                             <Button onClick={() => openEditDialog(task.id)}>Edit</Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px]">
+                        <DialogContent>
                             <DialogHeader>
                             <DialogTitle>Edit ToDo</DialogTitle>
                             <DialogDescription>
                                 Make changes to your todo here. Click save when you're done.
                             </DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                            <form onSubmit={onSubmit} className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="name" className="text-right">
+                            <div>
+                            <form onSubmit={onSubmit}>
+                                <Label htmlFor="name">
                                 Title
                                 </Label>
                                 <Input
                                 id="name"
-                                defaultValue={task.title}
-                                className="col-span-3"
+                                placeholder={task.title}
                                 value={value}
                                 onChange={onChange}
                                 />
@@ -93,20 +92,25 @@ interface TasksProps {
                         <DialogTrigger asChild>
                             <Button onClick={() => openEditDialog(task.id)}>Delete</Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px]">
+                        <DialogContent>
                             <DialogHeader>
                             <DialogTitle>Are you sure?</DialogTitle>
                             <DialogDescription>
                                 This will permamently remove your todo.
                             </DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                            <form className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="name" className="text-right">
+                            <div>
+                            <form
+                                onSubmit={(e) => {
+                                e.preventDefault()
+                                deleteTask(task.id)
+                                }}
+                            >
+                                <Label htmlFor="name">
                                 Title
                                 </Label>
                                 <p>{`${task.title}`}</p>
-                                <Button type="submit" onClick={() => deleteTask(task.id)}>Delete</Button>
+                                <Button type="submit">Delete</Button>
                             </form>
                             </div>
                         </DialogContent>
