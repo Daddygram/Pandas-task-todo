@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import styles from './todoList.module.scss';
-import { DataTable } from '@/components/tasks/dataTable';
-import { Task, columns } from "@/components/tasks/columns";
 import { getData } from '@/lib/utils';
+import Tasks from '@/components/tasks/tasks';
+import { MyContext } from '@/lib/context';
 
 const TodoList = () => {
-  const [data, setData] = useState<Task[]>([]);
+  const {data, setData} = useContext(MyContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,11 +18,16 @@ const TodoList = () => {
     };
 
     fetchData();
-  }, [])
+  }, [setData])
 
   return (
     <div className={styles.container}>
-      <DataTable columns={columns} data={data} />
+      <div className={styles.content}>
+        <h2 className={styles.h2}>Your Todo List:</h2>
+        <div className={styles.taskContainer}>
+          <Tasks data={data} />
+        </div>
+      </div>
     </div>
   );
 };

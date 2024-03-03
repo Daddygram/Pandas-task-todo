@@ -1,0 +1,19 @@
+@use "@/styles/abstracts" as *;
+
+.container {
+    @include flex(
+        $justify: space-between,
+        $wrap: wrap,
+        $align-items: center
+    );
+    width: 100%;
+    padding: $padding--lg;
+}
+
+.buttons {
+    @include flex(
+        $justify: center,
+        $wrap: nowrap,
+        $align-items: center
+    );
+}

@@ -1,10 +1,15 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-import { Task } from "@/components/tasks/columns"
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export interface Task {
+  userId: number,
+  id: number,
+  title: string,
+  completed: boolean
 }
 
 export async function getData(): Promise<Task[]> {

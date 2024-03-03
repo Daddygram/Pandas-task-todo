@@ -3,10 +3,30 @@
 .container {
     width: 100%;
     height: 100vh;
+    overflow: scroll;
     @include flex(
         $direction: column,
         $justify: center,
-        $wrap: wrap,
+        $wrap: nowrap,
+        $align-items: center
+    )
+}
+
+.content {
+    height: 100%;
+    margin: auto;
+}
+
+.h2 {
+    font-size: rem(40);
+    margin-top: 40%;
+}
+
+.taskContainer {
+    @include flex(
+        $direction: column,
+        $justify: center,
+        $wrap: nowrap,
         $align-items: center
     )
 }
