@@ -1,24 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import styles from './todoList.module.scss';
-import { getData } from '@/lib/utils';
+
 import Tasks from '@/components/tasks/tasks';
 import { MyContext } from '@/lib/context';
 
 const TodoList = () => {
-  const {data, setData} = useContext(MyContext);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedData = await getData();
-        setData(fetchedData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [setData])
+  const { data } = useContext(MyContext);
 
   return (
     <div className={styles.container}>

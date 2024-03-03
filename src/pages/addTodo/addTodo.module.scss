@@ -1,6 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .CardWithForm {
     &Card {
-        width: 350px;
+        width: 500px;
     }
     
     &CardHeader {

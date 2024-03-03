@@ -3,6 +3,8 @@
 .navbar {
     position: fixed;
     width: 100%;
+    background-color: $color--background;
+    z-index: 9;
     @include flex(
         $justify: space-around,
         $wrap: nowrap
