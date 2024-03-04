@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MyProvider } from './lib/context.tsx';
 import { createRoot } from 'react-dom/client';
 import Loader from './components/ui/loader.tsx';
-import ErrorBoundary from './lib/errorBoundary.tsx';
+import { ErrorBoundary } from "react-error-boundary";
 
 const root = createRoot(document.getElementById('root')!);
 
@@ -19,7 +19,7 @@ root.render(
     <BrowserRouter>
       <MyProvider>
         <Navbar />
-        <ErrorBoundary>
+        <ErrorBoundary fallback={<div>Something went wrong</div>}>
           <Suspense fallback ={<Loader />}>
             <Routes>
               <Route path="/" element={<App />} />
