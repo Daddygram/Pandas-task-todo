@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import toast, { Toaster } from "react-hot-toast"
 
 import styles from "./addTodo.module.scss"
 import { useContext, useState } from "react"
@@ -29,11 +30,13 @@ export default function AddTodo() {
     else{
       setData([...data, { userId: Math.random(), id: Math.random(), completed: false, title: title }])
       setvalue("")
+      toast.success('Successfully Added!')
     }
   }
 
   return (
     <div className={styles.container}>
+      <Toaster/>
       <Card className={styles.CardWithFormCard}>
         <CardHeader>
           <CardTitle>Create Todo</CardTitle>
@@ -53,8 +56,10 @@ export default function AddTodo() {
               <div className={styles.CardWithFormCardHeader}>
               </div>
             </div>
-            <Button type="button" onClick={()=>setvalue("")}>Cancel</Button>
-            <Button type="submit">Add Task</Button>
+            <div className={styles.buttons}>
+              <Button type="button" onClick={()=>setvalue("")}>Cancel</Button>
+              <Button type="submit">Add Task</Button>
+            </div>
           </form>
         </CardContent>
       </Card>

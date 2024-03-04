@@ -1,159 +1,158 @@
 .DialogOverlay {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    background-color: rgba(0, 0, 0, 0.8);
-  
-    &.data-[state=open] {
-      animation: animateIn 0.3s ease-in;
-      transition: opacity 0.3s ease-in;
-    }
-  
-    &.data-[state=closed] {
-      animation: animateOut 0.3s ease-out;
-      transition: opacity 0.3s ease-out;
-      opacity: 0;
-    }
-  
-    @keyframes animateIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  
-    @keyframes animateOut {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &.data-[state=open] {
+    animation: animateIn 0.3s ease-in;
+    transition: opacity 0.3s ease-in;
   }
-  .DialogContent {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    z-index: 50;
-    display: grid;
-    width: 100%;
-    max-width: 32rem;
-    transform: translate(-50%, -50%);
-    gap: 1rem;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #f3f4f6;
-    padding: 1.5rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-    transition-duration: 0.2s;
-  
-    &.data-[state=open] {
-      animation: animateIn 0.3s ease-in;
-      opacity: 1;
-    }
-  
-    &.data-[state=closed] {
-      animation: animateOut 0.3s ease-out;
-      opacity: 0;
-      transform: scale(0.95);
-    }
+
+  &.data-[state=closed] {
+    animation: animateOut 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
   }
-  
+
   @keyframes animateIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
     }
     to {
       opacity: 1;
-      transform: scale(1);
     }
   }
-  
+
   @keyframes animateOut {
     from {
       opacity: 1;
-      transform: scale(1);
     }
     to {
       opacity: 0;
-      transform: scale(0.95);
     }
   }
-  .DialogClose {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    border-radius: 0.125rem;
-    opacity: 0.7;
-    transition: opacity 0.2s ease-in-out;
-    cursor: pointer;
-    pointer-events: auto;
-  
-    &:hover {
-      opacity: 1;
-    }
-  
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px #93c5fd;
-    }
-  
-    &.data-[state=open] {
-      background-color: #93c5fd;
-      color: #64748b;
-    }
-  }
-  .srOnly {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-  }
-  .DialogHeader {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-
-    @media (min-width: 640px) {
-        text-align: left;
-    }
 }
-.DialogFooter {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    
-    @media (min-width: 640px) {
-      flex-direction: row;
-    }
+.DialogContent {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  display: grid;
+  width: 100%;
+  max-width: 32rem;
+  transform: translate(-50%, -50%);
+  gap: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  transition-duration: 0.2s;
+
+  &.data-[state=open] {
+    animation: animateIn 0.3s ease-in;
+    opacity: 1;
   }
-  .DialogTitle {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.025em;
+
+  &.data-[state=closed] {
+    animation: animateOut 0.3s ease-out;
+    opacity: 0;
+    transform: scale(0.95);
   }
-  .DialogDescription {
-    font-size: 0.875rem;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animateOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+.DialogClose {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  border-radius: 0.125rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+  pointer-events: auto;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #93c5fd;
+  }
+
+  &.data-[state=open] {
+    background-color: #93c5fd;
     color: #64748b;
   }
+}
+.srOnly {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.DialogHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+
+  @media (min-width: 640px) {
+      text-align: left;
+  }
+}
+.DialogFooter {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 0.5rem;
   
-  
-  
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+.DialogTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.DialogDescription {
+  font-size: 0.875rem;
+  color: #64748b;
+}
 
 
-  
-  
-  
-  
+
+
+
+
+
+

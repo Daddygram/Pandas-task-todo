@@ -59,7 +59,7 @@ interface TasksProps {
     <>
         {data.map((task) => (
             <div className={styles.container} key={task.id}>
-                <p>{task.title}</p>
+                <p className={styles.text}>{task.title}</p>
                 <div className={styles.buttons}>
                     <Dialog>
                         <DialogTrigger asChild>

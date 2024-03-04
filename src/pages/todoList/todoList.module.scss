@@ -20,6 +20,7 @@
 .h2 {
     font-size: rem(40);
     margin-top: 40%;
+    color: $color--tertiary;
 }
 
 .taskContainer {
@@ -28,5 +29,7 @@
         $justify: center,
         $wrap: nowrap,
         $align-items: center
-    )
+    );
+    gap: 10px;
+    margin-top: 20px;
 }
